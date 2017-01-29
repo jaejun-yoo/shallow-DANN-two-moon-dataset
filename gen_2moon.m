@@ -29,6 +29,7 @@ y = y(idx(nb_sample+1:end));
 theta = 15;
 theta = theta*pi/180;
 rotation = [  [cos(theta), sin(theta)]; [-sin(theta), cos(theta)] ];
+x = x * rotation;
 xt = xt * rotation;
 
 dataMean = mean(x);

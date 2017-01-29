@@ -42,9 +42,11 @@ X_adapt = X_adapt*rotation;
 Y = ones(numel(y),1).*(y==1)+ 2*ones(numel(y),1).*(y==-1);
 
 figure, 
-plot(X(:,1),X(:,2),'bo')
+plot(X(Y==1,1),X(Y==1,2),'bo')
 hold on 
-plot(X_adapt(:,1),X_adapt(:,2),'ro')
+plot(X(Y==2,1),X(Y==2,2),'b+')
+plot(X_adapt(yt==1,1),X_adapt(yt==1,2),'ro')
+plot(X_adapt(yt==-1,1),X_adapt(yt==-1,2),'r+')
 axis equal
 
 save('2Moons_v2','X','X_adapt','Y','x','xt','y','yt');

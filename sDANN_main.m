@@ -10,27 +10,7 @@ function []=sDANN_main()
 clear all
 % close all
 clc
-load('2Moons.mat')
-dataMean = mean(x);
-X = 2*bsxfun(@minus, x, dataMean);
-X_adapt = 2*bsxfun(@minus, xt, dataMean);
-theta = 35;
-theta = theta*pi/180;
-rotation = [  [cos(theta), sin(theta)]; [-sin(theta), cos(theta)] ];
-X_adapt = X_adapt*rotation;
-Y = ones(numel(y),1).*(y==1)+ 2*ones(numel(y),1).*(y==-1);
-
-% figure, 
-% subplot(121)
-% plot(X(:,1),X(:,2),'bo')
-% hold on 
-% plot(X_adapt(:,1),X_adapt(:,2),'ro')
-% axis equal
-% subplot(122)
-% plot(X_adapt(yt==1,1),X_adapt(yt==1,2),'ro')
-% hold on 
-% plot(X_adapt(yt==-1,1),X_adapt(yt==-1,2),'r+')
-% axis equal
+load('2Moons_v2.mat')
 
 learning_rate = 0.05;
 hidden_layer_size = 25;
